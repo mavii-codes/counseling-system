@@ -1,0 +1,53 @@
+erDiagram
+    USERS ||--o{ COUNSELING_CASES : handles
+    STUDENTS ||--o{ COUNSELING_CASES : has
+    COUNSELING_CASES ||--o{ COUNSELING_SESSIONS : includes
+
+    USERS {
+        bigint id PK
+        string name
+        string email UK
+        timestamp email_verified_at
+        string password
+        string remember_token
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    STUDENTS {
+        bigint id PK
+        string student_number UK
+        string name
+        string email
+        string phone
+        string program
+        string year_level
+        text notes
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    COUNSELING_CASES {
+        bigint id PK
+        bigint student_id FK
+        bigint counselor_id FK
+        string title
+        string category
+        string status
+        text summary
+        timestamp opened_at
+        timestamp closed_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    COUNSELING_SESSIONS {
+        bigint id PK
+        bigint counseling_case_id FK
+        datetime session_at
+        smallint duration_minutes
+        text notes
+        text next_steps
+        timestamp created_at
+        timestamp updated_at
+    }

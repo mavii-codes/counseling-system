@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .table { fill: #ffffff; stroke: #334155; stroke-width: 2; }
+      .head { fill: #0f766e; }
+      .head-text { fill: #ffffff; font: 700 18px Arial, sans-serif; }
+      .field { fill: #0f172a; font: 15px Arial, sans-serif; }
+      .key { fill: #b45309; font: 700 15px Arial, sans-serif; }
+      .line { stroke: #475569; stroke-width: 2.5; fill: none; }
+      .label { fill: #334155; font: 14px Arial, sans-serif; }
+      .title { fill: #0f172a; font: 700 28px Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1280" height="720"/>
+  <text class="title" x="640" y="48" text-anchor="middle">Counseling System ERD</text>
+
+  <!-- USERS -->
+  <rect class="table" x="70" y="120" width="260" height="290" rx="8"/>
+  <rect class="head" x="70" y="120" width="260" height="46" rx="8"/>
+  <text class="head-text" x="200" y="150" text-anchor="middle">USERS</text>
+  <text class="key" x="92" y="198">PK</text><text class="field" x="132" y="198">id</text>
+  <text class="field" x="92" y="226">name</text>
+  <text class="key" x="92" y="254">UK</text><text class="field" x="132" y="254">email</text>
+  <text class="field" x="92" y="282">email_verified_at</text>
+  <text class="field" x="92" y="310">password</text>
+  <text class="field" x="92" y="338">remember_token</text>
+  <text class="field" x="92" y="366">created_at</text>
+  <text class="field" x="92" y="394">updated_at</text>
+
+  <!-- STUDENTS -->
+  <rect class="table" x="70" y="450" width="260" height="240" rx="8"/>
+  <rect class="head" x="70" y="450" width="260" height="46" rx="8"/>
+  <text class="head-text" x="200" y="480" text-anchor="middle">STUDENTS</text>
+  <text class="key" x="92" y="528">PK</text><text class="field" x="132" y="528">id</text>
+  <text class="key" x="92" y="556">UK</text><text class="field" x="132" y="556">student_number</text>
+  <text class="field" x="92" y="584">name</text>
+  <text class="field" x="92" y="612">email</text>
+  <text class="field" x="92" y="640">program</text>
+  <text class="field" x="92" y="668">year_level</text>
+
+  <!-- COUNSELING_CASES -->
+  <rect class="table" x="500" y="215" width="300" height="330" rx="8"/>
+  <rect class="head" x="500" y="215" width="300" height="46" rx="8"/>
+  <text class="head-text" x="650" y="245" text-anchor="middle">COUNSELING_CASES</text>
+  <text class="key" x="522" y="293">PK</text><text class="field" x="562" y="293">id</text>
+  <text class="key" x="522" y="321">FK</text><text class="field" x="562" y="321">student_id</text>
+  <text class="key" x="522" y="349">FK</text><text class="field" x="562" y="349">counselor_id</text>
+  <text class="field" x="522" y="377">title</text>
+  <text class="field" x="522" y="405">category</text>
+  <text class="field" x="522" y="433">status</text>
+  <text class="field" x="522" y="461">summary</text>
+  <text class="field" x="522" y="489">opened_at</text>
+  <text class="field" x="522" y="517">closed_at</text>
+
+  <!-- COUNSELING_SESSIONS -->
+  <rect class="table" x="950" y="260" width="280" height="260" rx="8"/>
+  <rect class="head" x="950" y="260" width="280" height="46" rx="8"/>
+  <text class="head-text" x="1090" y="290" text-anchor="middle">COUNSELING_SESSIONS</text>
+  <text class="key" x="972" y="338">PK</text><text class="field" x="1012" y="338">id</text>
+  <text class="key" x="972" y="366">FK</text><text class="field" x="1012" y="366">counseling_case_id</text>
+  <text class="field" x="972" y="394">session_at</text>
+  <text class="field" x="972" y="422">duration_minutes</text>
+  <text class="field" x="972" y="450">notes</text>
+  <text class="field" x="972" y="478">next_steps</text>
+  <text class="field" x="972" y="506">created_at / updated_at</text>
+
+  <!-- Relationships -->
+  <path class="line" d="M330 260 C415 260 415 320 500 320"/>
+  <text class="label" x="392" y="254" text-anchor="middle">1 to many</text>
+  <text class="label" x="350" y="286">handles</text>
+
+  <path class="line" d="M330 570 C420 570 410 350 500 350"/>
+  <text class="label" x="395" y="566" text-anchor="middle">1 to many</text>
+  <text class="label" x="356" y="594">has</text>
+
+  <path class="line" d="M800 380 C855 380 895 380 950 380"/>
+  <text class="label" x="875" y="362" text-anchor="middle">1 to many</text>
+  <text class="label" x="860" y="405">includes</text>
+</svg>
