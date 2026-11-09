@@ -14,7 +14,8 @@
       "dest": "/build/$1"
     },
     {
-      "handle": "filesystem"
+      "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|txt|html))",
+      "dest": "/$1"
     },
     {
       "src": "/(.*)",
@@ -22,8 +23,10 @@
     }
   ],
   "env": {
+    "APP_NAME": "CounselorCare",
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_KEY": "base64:5a1o7iApwZDsMbxJoV7J4bd3T465Rst7rhJWIEmuRB0=",
+    "APP_DEBUG": "true",
     "LOG_CHANNEL": "stderr",
     "CACHE_STORE": "array",
     "SESSION_DRIVER": "cookie",
@@ -36,4 +39,3 @@
     "VIEW_COMPILED_PATH": "/tmp"
   }
 }
-
